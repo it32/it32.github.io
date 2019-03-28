@@ -230,9 +230,13 @@ html, body, #fullpage{
   justify-content: flex-start;
 }
 .nav-box a {
-  color:white !important;
   padding: 14px 20px;
   display: block;
+}
+
+nav a{
+	
+  color:white !important;
 }
 .mobile-nav-box{
   position: absolute;
