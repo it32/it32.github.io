@@ -221,7 +221,6 @@ html, body, #fullpage{
   box-shadow: 0 1px 6px rgba(0, 0, 0, .3)
 }
 .head-box {
-  
 }
 .nav-box {
   display: flex;
@@ -231,6 +230,7 @@ html, body, #fullpage{
   justify-content: flex-start;
 }
 .nav-box a {
+  color:white !important;
   padding: 14px 20px;
   display: block;
 }
