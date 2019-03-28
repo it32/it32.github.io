@@ -221,6 +221,7 @@ html, body, #fullpage{
   box-shadow: 0 1px 6px rgba(0, 0, 0, .3)
 }
 .head-box {
+  
 }
 .nav-box {
   display: flex;
@@ -230,13 +231,9 @@ html, body, #fullpage{
   justify-content: flex-start;
 }
 .nav-box a {
+  color: gray !important;
   padding: 14px 20px;
   display: block;
-}
-
-nav a{
-	
-  color:white !important;
 }
 .mobile-nav-box{
   position: absolute;
@@ -299,7 +296,7 @@ nav a{
   margin-bottom: 50px;
   position: relative;
   padding: 30px;
-  background: rgba(255, 255, 255, .85)  
+  background: rgba(255, 255, 255, .5)  
 }
 .widget-box::before, .widget-box::after {
   content: "";
@@ -353,6 +350,7 @@ nav a{
   background: rgba(255, 255, 255, .85)
 }
 .article {
+  orpacity:.7;
   margin-bottom: 50px;
 }
 .article-title {
