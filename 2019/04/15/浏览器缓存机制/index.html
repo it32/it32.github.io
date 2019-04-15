@@ -5,18 +5,33 @@
   
 
   
-  <title>所见之事·所感之悟</title>
+  <title>浏览器缓存机制-Nginx控制浏览器缓存 | 所见之事·所感之悟</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   
   
-  <meta property="og:type" content="website">
-<meta property="og:title" content="所见之事·所感之悟">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="{:toc} 一、前言本文的主要目的是解决浏览器缓存的问题，主要讲述浏览器缓存逻辑以及如何控制浏览器缓存 二、引言关于这个问题，在网上进行搜索之后会有很多解决方案，但是却不一定有效或者适合，最多见到的方法有两种：  1 添加时间戳 2 配置cache-control  1、时间戳对于第一种的方法，直白的讲就是给js文件添加一个 ‘版本号’，已求达到欺骗浏览器的目的，使得浏览器认为js文件版本已更新">
+<meta name="keywords" content="浏览器缓存,Nginx,前端">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浏览器缓存机制-Nginx控制浏览器缓存">
+<meta property="og:url" content="http://yoursite.com/2019/04/15/浏览器缓存机制/index.html">
 <meta property="og:site_name" content="所见之事·所感之悟">
+<meta property="og:description" content="{:toc} 一、前言本文的主要目的是解决浏览器缓存的问题，主要讲述浏览器缓存逻辑以及如何控制浏览器缓存 二、引言关于这个问题，在网上进行搜索之后会有很多解决方案，但是却不一定有效或者适合，最多见到的方法有两种：  1 添加时间戳 2 配置cache-control  1、时间戳对于第一种的方法，直白的讲就是给js文件添加一个 ‘版本号’，已求达到欺骗浏览器的目的，使得浏览器认为js文件版本已更新">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/2019/04/15/浏览器缓存机制/浏览器缓存机制/2.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/15/浏览器缓存机制/浏览器缓存机制/3.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/15/浏览器缓存机制/浏览器缓存机制/4.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/15/浏览器缓存机制/浏览器缓存机制/5.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/15/浏览器缓存机制/浏览器缓存机制/6.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/15/浏览器缓存机制/浏览器缓存机制/7.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/15/浏览器缓存机制/浏览器缓存机制/10.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/15/浏览器缓存机制/浏览器缓存机制/8.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/15/浏览器缓存机制/浏览器缓存机制/9.png">
+<meta property="og:updated_time" content="2019-04-15T10:07:25.692Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="所见之事·所感之悟">
+<meta name="twitter:title" content="浏览器缓存机制-Nginx控制浏览器缓存">
+<meta name="twitter:description" content="{:toc} 一、前言本文的主要目的是解决浏览器缓存的问题，主要讲述浏览器缓存逻辑以及如何控制浏览器缓存 二、引言关于这个问题，在网上进行搜索之后会有很多解决方案，但是却不一定有效或者适合，最多见到的方法有两种：  1 添加时间戳 2 配置cache-control  1、时间戳对于第一种的方法，直白的讲就是给js文件添加一个 ‘版本号’，已求达到欺骗浏览器的目的，使得浏览器认为js文件版本已更新">
+<meta name="twitter:image" content="http://yoursite.com/2019/04/15/浏览器缓存机制/浏览器缓存机制/2.png">
   
     <link rel="alternate" href="/atom.xml" title="所见之事·所感之悟" type="application/atom+xml">
   
@@ -49,15 +64,13 @@
   </div>
 </header>
       <div id="middlecontent" title class="global-width sidebar-right">
-        <section id="main">
-  
-    <article id="post-浏览器缓存机制" class="article global-container article-type-post" itemscope="" itemprop="blogPost">
+        <section id="main"><article id="post-浏览器缓存机制" class="article global-container article-type-post" itemscope="" itemprop="blogPost">
   
     <header class="article-header">
       
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/15/浏览器缓存机制/">浏览器缓存机制-Nginx控制浏览器缓存</a>
+    <h1 class="article-title" itemprop="name">
+      浏览器缓存机制-Nginx控制浏览器缓存
     </h1>
   
 
@@ -72,6 +85,10 @@
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nginx/">Nginx</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/浏览器缓存/">浏览器缓存</a></li></ul>
 
   </div>
+  
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+    </span>
   
 
   <div class="article-inner">
@@ -362,15 +379,32 @@
       
     </div>
     
+      <footer class="article-footer">
+        完
+      </footer>
+    
   </div>
+  
+    
+    
+<div id="gitmentContainer"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: '',
+  repo: '',
+  oauth: {
+    client_id: '',
+    client_secret: '',
+  },
+})
+gitment.render('gitmentContainer')
+</script>
+
   
   
 </article>
-
-  
-
-
-
 </section>
         <aside id="sidebar">
   
