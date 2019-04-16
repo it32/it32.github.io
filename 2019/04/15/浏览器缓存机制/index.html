@@ -10,13 +10,13 @@
   
   
   
-  <meta name="description" content="{:toc} 一、前言本文的主要目的是解决浏览器缓存的问题，主要讲述浏览器缓存逻辑以及如何控制浏览器缓存 二、引言关于这个问题，在网上进行搜索之后会有很多解决方案，但是却不一定有效或者适合，最多见到的方法有两种：  1 添加时间戳 2 配置cache-control  1、时间戳对于第一种的方法，直白的讲就是给js文件添加一个 ‘版本号’，已求达到欺骗浏览器的目的，使得浏览器认为js文件版本已更新">
+  <meta name="description" content="一、前言本文的主要目的是解决浏览器缓存的问题，主要讲述浏览器缓存逻辑以及如何控制浏览器缓存 二、引言关于这个问题，在网上进行搜索之后会有很多解决方案，但是却不一定有效或者适合，最多见到的方法有两种：  1 添加时间戳 2 配置cache-control  1、时间戳对于第一种的方法，直白的讲就是给js文件添加一个 ‘版本号’，已求达到欺骗浏览器的目的，使得浏览器认为js文件版本已更新 那你修改过t">
 <meta name="keywords" content="浏览器缓存,Nginx,前端">
 <meta property="og:type" content="article">
 <meta property="og:title" content="浏览器缓存机制-Nginx控制浏览器缓存">
 <meta property="og:url" content="http://yoursite.com/2019/04/15/浏览器缓存机制/index.html">
 <meta property="og:site_name" content="所见之事·所感之悟">
-<meta property="og:description" content="{:toc} 一、前言本文的主要目的是解决浏览器缓存的问题，主要讲述浏览器缓存逻辑以及如何控制浏览器缓存 二、引言关于这个问题，在网上进行搜索之后会有很多解决方案，但是却不一定有效或者适合，最多见到的方法有两种：  1 添加时间戳 2 配置cache-control  1、时间戳对于第一种的方法，直白的讲就是给js文件添加一个 ‘版本号’，已求达到欺骗浏览器的目的，使得浏览器认为js文件版本已更新">
+<meta property="og:description" content="一、前言本文的主要目的是解决浏览器缓存的问题，主要讲述浏览器缓存逻辑以及如何控制浏览器缓存 二、引言关于这个问题，在网上进行搜索之后会有很多解决方案，但是却不一定有效或者适合，最多见到的方法有两种：  1 添加时间戳 2 配置cache-control  1、时间戳对于第一种的方法，直白的讲就是给js文件添加一个 ‘版本号’，已求达到欺骗浏览器的目的，使得浏览器认为js文件版本已更新 那你修改过t">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2019/04/15/浏览器缓存机制/浏览器缓存机制/2.png">
 <meta property="og:image" content="http://yoursite.com/2019/04/15/浏览器缓存机制/浏览器缓存机制/3.png">
@@ -27,10 +27,10 @@
 <meta property="og:image" content="http://yoursite.com/2019/04/15/浏览器缓存机制/浏览器缓存机制/10.png">
 <meta property="og:image" content="http://yoursite.com/2019/04/15/浏览器缓存机制/浏览器缓存机制/8.png">
 <meta property="og:image" content="http://yoursite.com/2019/04/15/浏览器缓存机制/浏览器缓存机制/9.png">
-<meta property="og:updated_time" content="2019-04-15T10:07:25.692Z">
+<meta property="og:updated_time" content="2019-04-16T01:55:08.105Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浏览器缓存机制-Nginx控制浏览器缓存">
-<meta name="twitter:description" content="{:toc} 一、前言本文的主要目的是解决浏览器缓存的问题，主要讲述浏览器缓存逻辑以及如何控制浏览器缓存 二、引言关于这个问题，在网上进行搜索之后会有很多解决方案，但是却不一定有效或者适合，最多见到的方法有两种：  1 添加时间戳 2 配置cache-control  1、时间戳对于第一种的方法，直白的讲就是给js文件添加一个 ‘版本号’，已求达到欺骗浏览器的目的，使得浏览器认为js文件版本已更新">
+<meta name="twitter:description" content="一、前言本文的主要目的是解决浏览器缓存的问题，主要讲述浏览器缓存逻辑以及如何控制浏览器缓存 二、引言关于这个问题，在网上进行搜索之后会有很多解决方案，但是却不一定有效或者适合，最多见到的方法有两种：  1 添加时间戳 2 配置cache-control  1、时间戳对于第一种的方法，直白的讲就是给js文件添加一个 ‘版本号’，已求达到欺骗浏览器的目的，使得浏览器认为js文件版本已更新 那你修改过t">
 <meta name="twitter:image" content="http://yoursite.com/2019/04/15/浏览器缓存机制/浏览器缓存机制/2.png">
   
     <link rel="alternate" href="/atom.xml" title="所见之事·所感之悟" type="application/atom+xml">
@@ -95,8 +95,7 @@
     
     <div class="article-content article-content-doorframe" itemprop="articleBody">
       
-        <p>{:toc}</p>
-<h1 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h1><p>本文的主要目的是解决浏览器缓存的问题，主要讲述浏览器缓存逻辑以及如何控制浏览器缓存</p>
+        <h1 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h1><p>本文的主要目的是解决浏览器缓存的问题，主要讲述浏览器缓存逻辑以及如何控制浏览器缓存</p>
 <h1 id="二、引言"><a href="#二、引言" class="headerlink" title="二、引言"></a>二、引言</h1><p>关于这个问题，在网上进行搜索之后会有很多解决方案，但是却不一定有效或者适合，最多见到的方法有两种：</p>
 <ul>
 <li>1 添加时间戳</li>
