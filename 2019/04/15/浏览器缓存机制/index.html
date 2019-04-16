@@ -10,6 +10,8 @@
   
   
   
+  <meta name="keywords" content="漠">
+  
   <meta name="description" content="一、前言本文的主要目的是解决浏览器缓存的问题，主要讲述浏览器缓存逻辑以及如何控制浏览器缓存 二、引言关于这个问题，在网上进行搜索之后会有很多解决方案，但是却不一定有效或者适合，最多见到的方法有两种：  1 添加时间戳 2 配置cache-control  1、时间戳对于第一种的方法，直白的讲就是给js文件添加一个 ‘版本号’，已求达到欺骗浏览器的目的，使得浏览器认为js文件版本已更新 那你修改过t">
 <meta name="keywords" content="浏览器缓存,Nginx,前端">
 <meta property="og:type" content="article">
@@ -59,6 +61,8 @@
         <a class="nav-item" href="/" title="">首页</a>
       
         <a class="nav-item" href="/archives" title="">归档</a>
+      
+        <a class="nav-item" href="/category" title="">分类</a>
       
     </nav>
   </div>
@@ -385,6 +389,20 @@
   </div>
   
     
+<nav id="article-nav">
+  <div class="article-nav-block">
+    
+  </div>
+  <div class="article-nav-block">
+    
+      <a href="/2019/04/15/技术及面试总结/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">技术及面试总结</div>
+        <strong class="article-nav-caption"></strong>
+      </a>
+    
+  </div>
+</nav>
+
     
 <div id="gitmentContainer"></div>
 <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
@@ -424,13 +442,20 @@ gitment.render('gitmentContainer')
 
   
     
+  <div class="widget-box">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a></li></ul>
+    </div>
+  </div>
+
 
   
     
   <div class="widget-box">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nginx/">Nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端/">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/浏览器缓存/">浏览器缓存</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nginx/">Nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端/">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/技术/">技术</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/浏览器缓存/">浏览器缓存</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面试/">面试</a></li></ul>
     </div>
   </div>
 
@@ -440,7 +465,7 @@ gitment.render('gitmentContainer')
   <div class="widget-box">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Nginx/" style="font-size: 10px;">Nginx</a> <a href="/tags/前端/" style="font-size: 10px;">前端</a> <a href="/tags/浏览器缓存/" style="font-size: 10px;">浏览器缓存</a>
+      <a href="/tags/Nginx/" style="font-size: 10px;">Nginx</a> <a href="/tags/前端/" style="font-size: 10px;">前端</a> <a href="/tags/技术/" style="font-size: 10px;">技术</a> <a href="/tags/浏览器缓存/" style="font-size: 10px;">浏览器缓存</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
     </div>
   </div>
 
@@ -462,6 +487,10 @@ gitment.render('gitmentContainer')
         
           <li>
             <a href="/2019/04/15/浏览器缓存机制/">浏览器缓存机制-Nginx控制浏览器缓存</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/15/技术及面试总结/">技术及面试总结</a>
           </li>
         
       </ul>
@@ -498,6 +527,8 @@ gitment.render('gitmentContainer')
     <a href="/" class="mobile-nav-link">首页</a>
   
     <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="/category" class="mobile-nav-link">分类</a>
   
   <div class="mobile-nav-img  mobile-nav-bottom"></div>
 </nav>    
